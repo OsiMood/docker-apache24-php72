@@ -14,7 +14,7 @@ RUN apt-get update
 RUN apt-get -y install nano;
 RUN apt-get -y install apache2;
 RUN apt-get -y install php7.2 libapache2-mod-php7.2;
-RUN apt-get -y install php7.2-mysqlnd php7.2-curl php7.2-gd php-pear php7.2-imagick php7.2-imap php7.2-mcrypt php7.2-xmlrpc php7.2-xsl php7.2-intl;
+RUN apt-get -y install php7.2-mysqlnd php7.2-curl php7.2-gd php-pear php7.2-imagick php7.2-imap php7.2-xmlrpc php7.2-xsl php7.2-intl;
 RUN cd /tmp; wget https://getcomposer.org/composer.phar; chmod +x /tmp/composer.phar; mv /tmp/composer.phar /usr/local/bin/composer;
 RUN a2enmod rewrite;
 
