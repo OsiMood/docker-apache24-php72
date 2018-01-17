@@ -8,8 +8,8 @@ ENV VHOST localhost.dev
 
 RUN apt-get update && apt-get -y upgrade;
 RUN apt-get install apt-transport-https lsb-release ca-certificates wget -y;
-RUN sudo wget -O /etc/apt/trusted.gpg.d/php.gpg https://packages.sury.org/php/apt.gpg
-RUN echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" | sudo tee /etc/apt/sources.list.d/php.list
+RUN wget -O /etc/apt/trusted.gpg.d/php.gpg https://packages.sury.org/php/apt.gpg
+RUN echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/php.list
 RUN apt-get update
 RUN apt-get -y install nano;
 RUN apt-get -y install apache2;
