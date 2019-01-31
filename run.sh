@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "=> Variables d'environnement"
+echo "=> Env Variables"
 echo "APP_ENV : ${APP_ENV}"
 echo "PORT : ${PORT}"
 echo "VHOST : ${VHOST}"
@@ -14,13 +14,13 @@ sed -i.bak s/'${VHOST}'/"${VHOST}"/g /tmp/template.conf
 sed -i.bak s+'${WWW}'+${WWW}+g /tmp/template.conf
 echo ""
 
-echo "=> Lecture du fichier de conf:"
+echo "=> Reading conf file:"
 cat /tmp/template.conf
 echo ""
 
 cp /tmp/template.conf /etc/apache2/sites-enabled/${VHOST}.conf
 
-echo "=> Démarrage du serveur web"
+echo "=> Starting Apache as a service"
 #httpd -D FOREGROUND
 service apache2 start
 tail -f /var/log/apache2/${VHOST}_access.log
